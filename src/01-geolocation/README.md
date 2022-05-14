@@ -37,3 +37,10 @@ const latLng = useGeoLocation({ watch: true })
 
 Tip: `window.navigator.geolocation.watchPosition` is not invoked with an initial value on its own.
 Tip: What happens with the active watcher when the component is unmounted?
+
+### 3. "I Believe I Can Fly"
+
+Center the map on the users current position whenever it changes.
+
+Tip: You can use `react-leaflet`s `useMap` hook to retrieve an instance of the leaflet map.
+Tip: You can use leaflets `flyTo` method to move the map to a position.

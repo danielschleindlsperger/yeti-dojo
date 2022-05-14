@@ -1,49 +1,11 @@
 import React, { SVGProps } from 'react'
 
-function useBattery({ watch = false }: { watch?: boolean } = {}) {
-  const [battery, setBattery] = React.useState<
-    Pick<BatteryManager, 'charging' | 'level'> | undefined
-  >(undefined)
-  React.useEffect(() => {
-    window.navigator?.getBattery?.().then((bm) => {
-      setBattery({ charging: bm.charging, level: bm.level })
-
-      if (watch) {
-        console.log(bm)
-        const handleLevelChange = () => setBattery({ charging: bm.charging, level: bm.level })
-        const handleChargingChange = (evt: BatteryEvent) =>
-          setBattery((prev) => ({
-            ...prev,
-            charging: evt.target.charging,
-            level: evt.target.level,
-          }))
-        bm.addEventListener('levelchange', handleLevelChange)
-        bm.addEventListener('chargingchange', handleChargingChange)
-
-        return () => {
-          bm.removeEventListener('levelchange', handleLevelChange)
-          bm.removeEventListener('chargingchange', handleChargingChange)
-        }
-      }
-    })
-  }, [])
-
-  return battery
-}
-
 export function Battery() {
-  const battery = useBattery({ watch: true })
-  if (!battery) return null
-
-  const { level, charging } = battery
+  // YOUR CODE HERE
 
   return (
     <div className="h-screen p-16 flex justify-center items-center">
-      <BatteryIcon
-        charging={charging}
-        level={level}
-        className="max-h-screen max-w-full w-96 h-96"
-      />
+      <BatteryIcon charging={true} level={0.15} className="max-h-screen max-w-full w-96 h-96" />
     </div>
   )
 }
