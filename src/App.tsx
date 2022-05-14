@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { Link, Route, RouteProps, Routes } from 'react-router-dom'
 import { Geo } from './01-geolocation/Geo'
+import { Battery } from './02-battery/Battery'
 
 const WithChildren: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [count, setCount] = React.useState(0)
@@ -47,6 +48,12 @@ const routes: (RouteProps & { name: string; path: NonNullable<RouteProps['path']
     name: 'Geolocation',
     path: '/geo',
     element: <Geo />,
+  },
+
+  {
+    name: 'Battery',
+    path: '/battery',
+    element: <Battery />,
   },
 ]
 
