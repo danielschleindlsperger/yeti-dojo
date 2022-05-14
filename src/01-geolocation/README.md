@@ -44,3 +44,8 @@ Center the map on the users current position whenever it changes.
 
 Tip: You can use `react-leaflet`s `useMap` hook to retrieve an instance of the leaflet map.
 Tip: You can use leaflets `flyTo` method to move the map to a position.
+
+### 4. Bonus: Handle Errors
+
+Multiple errors could happen: Users can decline to share their location or the users device has no recent location available to share.
+Handle it.
